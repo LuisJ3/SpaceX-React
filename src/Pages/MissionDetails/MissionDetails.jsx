@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useParams } from 'react-router-dom';
 import { AppContext } from "../../State";
-import { Col, Container, Row } from "react-bootstrap";
 import Nav from "../../Components/NavBar";
 
 const MissionDetails = () => {

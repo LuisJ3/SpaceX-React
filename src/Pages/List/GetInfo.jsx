@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import {useHistory} from 'react-router-dom';
 import Nav from "../../Components/NavBar";
 import Jumbo from "../../Components/Jumbotron";
 import Card from "../../Components/Card";
 import { Col, Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 
-class Main extends Component {
+class GetInfo extends Component {
   state = {
     loading: true,
-    capsule: []
+    capsule: [],
   };
 
   async componentDidMount() {
@@ -41,6 +40,6 @@ class Main extends Component {
       </div>
     );
   }
-};
+}
 
-export default Main;
+export default GetInfo;
