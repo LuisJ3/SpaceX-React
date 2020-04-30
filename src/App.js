@@ -1,11 +1,12 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route} from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import  AppContext from "./State";
 import Main from './Pages/Main';
 import MissionDetails from './Pages/MissionDetails'
 import GetInfo from './Pages/List'
+import AddNew from './Pages/AddNew'
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/data">
             <GetInfo />
+          </Route>
+          <Route path="/add">
+            <AddNew />
           </Route>
         </Switch>
       </BrowserRouter>

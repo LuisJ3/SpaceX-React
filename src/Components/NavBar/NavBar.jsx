@@ -6,11 +6,12 @@ import logo from "../../Images/spacex.png"
 const NavBar = () => (
 
     <Navbar bg="light" variant="light">
-      <Navbar.Brand href="#home"><Image src={logo} height='30'/></Navbar.Brand>
+      <Navbar.Brand href="/dashboard"><Image src={logo} height='30'/></Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="/dashboard">Home</Nav.Link>
         <Nav.Link href="#features">Features</Nav.Link>
         <Nav.Link href="#pricing">Pricing</Nav.Link>
+        <Nav.Link href="/Add">Add New</Nav.Link>
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {useHistory} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import Nav from "../../Components/NavBar";
 import Jumbo from "../../Components/Jumbotron";
 import Card from "../../Components/Card";
@@ -12,6 +12,11 @@ class Main extends Component {
     capsule: []
   };
 
+  handleClick = (serial) => {
+    const { history } = this.props
+    if(history) history.push('/dashboard/'+serial);
+  }
+
   async componentDidMount() {
     const url = "https://api.spacexdata.com/v3/capsules";
     const response = await fetch(url);
@@ -21,6 +26,7 @@ class Main extends Component {
   }
 
   render() {
+    // 
     return (
       <div>
         <Nav />
@@ -28,8 +34,8 @@ class Main extends Component {
         <Container>
           <Row>
             {this.state.capsule.map((c, i) => (
-              <Col key={i} lg="4">
-                <Card
+              <Col key={i} onClick={this.handleClick.bind(this, c.capsule_serial)} lg="4">
+                <Card 
                   name={c.capsule_id}
                   date={c.capsule_serial}
                   description={c.details}
@@ -43,4 +49,5 @@ class Main extends Component {
   }
 };
 
-export default Main;
+
+export default withRouter(Main);
