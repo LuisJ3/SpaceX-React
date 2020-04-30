@@ -8,7 +8,6 @@ import { Row } from "react-bootstrap";
 
 class Main extends Component {
   state = {
-    loading: true,
     capsule: []
   };
 
@@ -21,7 +20,7 @@ class Main extends Component {
     const url = "https://api.spacexdata.com/v3/capsules";
     const response = await fetch(url);
     const data = await response.json();
-    this.setState({ capsule: data, loading: false });
+    this.setState({ capsule: data });
     console.log(this.state.capsule);
   }
 

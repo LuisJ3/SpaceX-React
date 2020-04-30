@@ -1,29 +1,19 @@
-import React, { useContext } from "react";
-import { useParams } from 'react-router-dom';
-import { AppContext } from "../../State";
+import React from "react";
+import { withRouter } from 'react-router-dom';
 import Nav from "../../Components/NavBar";
-import { render } from "@testing-library/react";
 
 class MissionDetails extends React.Component {
-  // const { id } = useParams();
-  // const { missions } = useContext(AppContext);
-  // const mission = missions.find(c => c.id === parseInt(id, 10));
 
   state = {
-    loading: true,
     capsule: []
   };
 
-  getId(){
-    const { id } = useParams();
-    return id.toString;
-  }
-
   async componentDidMount() {
-    const url = "https://api.spacexdata.com/v3/capsules/C103";
+    const serial = this.props.match.params.id
+    const url = "https://api.spacexdata.com/v3/capsules/"+serial;
     const response = await fetch(url);
     const data = await response.json();
-    this.setState({ capsule: data, loading: false });
+    this.setState({ capsule: data });
     console.log(this.state.capsule);
   }
 
@@ -40,4 +30,4 @@ render(){
 };
 };
 
-export default MissionDetails;
+export default withRouter(MissionDetails);
